@@ -1,19 +1,26 @@
 import React from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput } from 'react-native';
+import { connect } from 'react-redux';
 
-import Actions from '../Actions';
+import { addTodo } from '../Actions';
 
-class Input extends Component {
-  render() {
-    return (
-      <View>
-        <TextInput
-          placeholder="Enter an Item!"
-          onChangeText={val => addTodo({ text: val, selected: false })}
-        />
-      </View>
-    );
-  }
-}
+import AddButton from './Buttons/AddButton';
+import { CardSection } from './CardSection';
 
-export default Input;
+const Input = () => {
+  return (
+    <CardSection>
+      <TextInput style={{ flex: 1 }} placeholder="Enter an Item!" />
+      <AddButton onPress={addTodo} />
+    </CardSection>
+  );
+};
+
+const mapDispatchToProps = () => {
+  
+};
+
+export default connect(
+  addTodo,
+  mapDispatchToProps
+)(Input);

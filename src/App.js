@@ -12,7 +12,7 @@ const App = () => {
     <Provider store={createStore(reducers)}>
       <View>
         <Title />
-        <Input value={this.state.value} />
+        <Input />
       </View>
     </Provider>
   );
