@@ -3,14 +3,18 @@ import { ADD_TODO, REMOVE_TODO, REMOVE_SELECTED, TOGGLE_SELECT } from './types';
 export const addTodo = todo => {
   return {
     type: ADD_TODO,
-    payload: todo
+    payload: {
+      text: todo,
+      id: String(Math.random),
+      selected: false
+    }
   };
 };
 
-export const removeTodo = position => {
+export const removeTodo = id => {
   return {
     type: REMOVE_TODO,
-    payload: position
+    payload: id
   };
 };
 
@@ -20,9 +24,9 @@ export const removeSelected = () => {
   };
 };
 
-export const toggleSelect = position => {
+export const toggleSelect = id => {
   return {
     type: TOGGLE_SELECT,
-    payload: position
+    payload: id
   };
 };

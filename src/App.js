@@ -6,6 +6,7 @@ import { View } from 'react-native';
 import reducers from './Reducers';
 import Title from './Components/Title';
 import Input from './Components/Input';
+import List from './Components/List';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <View>
         <Title />
         <Input />
+        <List />
       </View>
     </Provider>
   );
