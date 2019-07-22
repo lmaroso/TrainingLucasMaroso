@@ -2,9 +2,9 @@ import { ADD_TODO, REMOVE_TODO, REMOVE_SELECTED, TOGGLE_SELECT } from '../Action
 
 const INITIAL_STATE = [
   {
-    id: '1',
-    text: 'Hola',
-    selected: true
+    id: Math.random(),
+    text: 'test',
+    selected: false
   }
 ];
 
@@ -17,7 +17,7 @@ export default (state = INITIAL_STATE, action) => {
     case REMOVE_SELECTED:
       return state.filter(elem => elem.selected === true);
     case TOGGLE_SELECT:
-      return state.map(elem => (elem.id === action.payload ? { ...elem, selected: !elem.selected } : elem)); // toggleSelectHelper(action.payload, state);
+      return state.map(elem => (elem.id === action.payload ? { ...elem, selected: !elem.selected } : elem));
     default:
       return state;
   }

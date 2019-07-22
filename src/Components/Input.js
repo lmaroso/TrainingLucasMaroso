@@ -23,7 +23,7 @@ class Input extends Component {
     return (
       <CardSection>
         <TextInput
-          style={{ flex: 1 }}
+          style={styles.textInputStyle}
           placeholder="Enter an Item!"
           value={text}
           onChangeText={text => this.setState({ text })}
@@ -33,6 +33,13 @@ class Input extends Component {
     );
   }
 }
+
+const styles = {
+  textInputStyle: {
+    flex: 1,
+    fontSize: 18
+  }
+};
 
 export default connect(
   null,

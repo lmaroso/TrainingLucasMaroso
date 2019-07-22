@@ -1,25 +1,36 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { CheckBox } from 'react-native-elements';
+// import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 
+import CheckBox from '../CheckBox';
 import { toggleSelect, removeTodo } from '../../Actions';
 import { CardSection } from '../CardSection';
 
 const ListItem = ({ todo, removeTodo, toggleSelect }) => {
   const { id, text, selected } = todo;
-
   return (
     <CardSection>
-      <Text style={{ flex: 1 }}>{text}</Text>
-      <CheckBox checked={selected} onPress={() => toggleSelect(id)} />
-      <TouchableOpacity onPress={() => removeTodo(id)}>
-        <Icon name="remove" size={30} color="black" />
+      <CheckBox selected />
+      <Text style={styles.textStyle}>{text}</Text>
+      <TouchableOpacity onPress={() => removeTodo(id)} style={{ marginRight: 10 }}>
+        <Icon name="close" size={30} color="red" />
       </TouchableOpacity>
     </CardSection>
   );
 };
+
+const styles = {
+  textStyle: {
+    flex: 1,
+    fontSize: 18
+  }
+};
+
+/*const mapStateToProps = () => {
+
+}*/
 
 export default connect(
   null,
