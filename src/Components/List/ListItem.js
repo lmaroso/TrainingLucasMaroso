@@ -1,49 +1,40 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import CheckBox from '../CheckBox';
+import DeleteButton from '../Buttons/DeleteButton';
+import CheckBox from '../Buttons/CheckBox';
 import { toggleSelect, removeTodo } from '../../Actions';
-import { CardSection } from '../CardSection';
+import { CardSection } from '../CardSection/Index';
 
-const ListItem = ({ todo, removeTodo, toggleSelect }) => {
+import Styles from './Styles';
+
+const ListItem = ({ todo, dispatchRemoveTodo, dispatchToggleSelect }) => {
   const { id, text, selected } = todo;
+  const { textStyle } = Styles;
   return (
-    <CardSection text={text} selected={selected}>
-      <Text style={styles.textStyle}>{text}</Text>
-      <CheckBox onPress={() => toggleSelect(id)} selected={selected} />
-      <TouchableOpacity onPress={() => removeTodo(id)} style={{ marginRight: 10 }}>
-        <Icon name="close" size={30} color="red" />
-      </TouchableOpacity>
+    <CardSection selected={selected}>
+      <Text style={textStyle}>{text}</Text>
+      <CheckBox onPress={() => dispatchToggleSelect(id)} selected={selected} />
+      <DeleteButton onPress={() => dispatchRemoveTodo(id)} />
     </CardSection>
   );
 };
 
-const styles = {
-  textStyle: {
-    flex: 1,
-    fontSize: 18,
-    paddingLeft: 15
-  }
-};
-/*
 ListItem.propTypes = {
-  removeTodo: PropTypes.func,
-  toggleSelect: PropTypes.func,
-  todo: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      text: PropTypes.string,
-      selected: PropTypes.bool
-    })
-  )
-};*/
+  dispatchRemoveTodo: PropTypes.func,
+  dispatchToggleSelect: PropTypes.func,
+  todo: PropTypes.shape({
+    id: PropTypes.string,
+    text: PropTypes.string,
+    selected: PropTypes.bool
+  })
+};
 
 const mapDispatchToProps = dispatch => ({
-  toggleSelect: id => dispatch(toggleSelect(id)),
-  removeTodo: id => dispatch(removeTodo(id))
+  dispatchToggleSelect: id => dispatch(toggleSelect(id)),
+  dispatchRemoveTodo: id => dispatch(removeTodo(id))
 });
 
 export default connect(

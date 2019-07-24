@@ -3,10 +3,11 @@ import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { addTodo } from '../Actions';
+import { addTodo } from '../../Actions';
+import AddButton from '../Buttons/AddButton';
+import { CardSection } from '../CardSection/Index';
 
-import AddButton from './Buttons/AddButton';
-import { CardSection } from './CardSection';
+import Styles from './Styles';
 
 class Input extends Component {
   state = { text: '' };
@@ -20,11 +21,13 @@ class Input extends Component {
 
   render() {
     const { text } = this.state;
+    const { textInputStyle } = Styles;
 
     return (
       <CardSection>
         <TextInput
-          style={styles.textInputStyle}
+          onSubmitEditing={this.handleAdd}
+          style={textInputStyle}
           placeholder="Enter an Item!"
           value={text}
           onChangeText={text => this.setState({ text })}
@@ -34,13 +37,6 @@ class Input extends Component {
     );
   }
 }
-
-const styles = {
-  textInputStyle: {
-    flex: 1,
-    fontSize: 18
-  }
-};
 
 Input.propTypes = {
   addTodo: PropTypes.func

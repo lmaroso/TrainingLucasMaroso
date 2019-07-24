@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ListItem from './ListItem';
 
@@ -12,6 +13,14 @@ const List = ({ todos }) => {
       renderItem={({ item }) => <ListItem todo={item} />}
     />
   );
+};
+
+ListItem.propTypes = {
+  todos: PropTypes.shape({
+    id: PropTypes.string,
+    text: PropTypes.string,
+    selected: PropTypes.bool
+  })
 };
 
 const mapStateToProps = state => ({ todos: state });

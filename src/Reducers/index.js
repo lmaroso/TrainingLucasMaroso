@@ -1,17 +1,6 @@
 import { ADD_TODO, REMOVE_TODO, REMOVE_SELECTED, TOGGLE_SELECT } from '../Actions/types';
 
-const INITIAL_STATE = [
-  {
-    text: 'test1',
-    id: String(Math.random()),
-    selected: false
-  },
-  {
-    text: 'test2',
-    id: String(Math.random()),
-    selected: true
-  }
-];
+const INITIAL_STATE = [];
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {

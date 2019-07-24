@@ -1,24 +1,20 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import connect from 'react-redux';
+import { Text, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 
-import { removeSelected } from '../Actions';
+import Styles from './Styles';
 
-const DeleteSelectedButton = ({ todos }) => {
-  
-    <TouchableOpacity onPress={{todos => removeSelected(todos)}}>
-        <Text style={styles.textStyle}>Remove selected items</Text>
+const DeleteSelectedButton = ({ onPress }) => {
+  const { textStyle } = Styles;
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Text style={textStyle}>Remove selected items</Text>
     </TouchableOpacity>
   );
 };
 
-const styles = {
-  textStyle: {
-    fontSize: 18,
-    color: 'red'
-  }
+DeleteSelectedButton.propTypes = {
+  onPress: PropTypes.func
 };
 
-const mapStateToProps = state => ({ todos: state });
-
-export default connect(mapStateToProps)(Footer);
+export default DeleteSelectedButton;

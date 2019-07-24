@@ -1,27 +1,16 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
+import Styles from './Styles';
+
 const Title = () => {
   // eslint-disable-next-line no-use-before-define
-  const { viewStyle, textStyle } = styles;
+  const { textStyle, viewStyle } = Styles;
   return (
     <View style={viewStyle}>
       <Text style={textStyle}>Todo List</Text>
     </View>
   );
-};
-
-const styles = {
-  viewStyle: {
-    backgroundColor: '#87ceeb',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 15
-  },
-  textStyle: {
-    fontSize: 20,
-    color: '#FFF'
-  }
 };
 
 export default Title;
