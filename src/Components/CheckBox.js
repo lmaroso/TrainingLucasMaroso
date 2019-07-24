@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { toggleSelect } from '../Actions';
-
-const CheckBox = selected => {
+const CheckBox = ({ selected, toggleSelect }) => {
   const { checkedCheckBoxStyle, uncheckedCheckBoxStyle } = styles;
   return (
-    <TouchableOpacity style={uncheckedCheckBoxStyle}>
+    <TouchableOpacity onPress={() => toggleSelect} style={uncheckedCheckBoxStyle}>
       <View style={[selected && checkedCheckBoxStyle]} />
     </TouchableOpacity>
   );
@@ -33,7 +31,9 @@ const styles = {
   }
 };
 
-export default connect(
-  null,
-  { toggleSelect }
-)(CheckBox);
+CheckBox.propTypes = {
+  selected: PropTypes.bool,
+  toggleSelect: PropTypes.func
+};
+
+export default CheckBox;

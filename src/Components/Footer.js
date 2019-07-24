@@ -1,19 +1,38 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 
-const Footer = () => {
+import { removeSelected } from '../Actions';
+
+const Footer = ({ removeAll }) => {
   return (
-    <View>
-      <Text>Remove selected items</Text>
+    <View style={styles.footerStyle}>
+      <TouchableOpacity onPress={removeAll} style={{ marginRight: 10 }}>
+        <Text style={styles.textStyle}>Remove selected items</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = {
   footerStyle: {
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#FFF',
+    borderColor: '#ddd',
+    elevation: 10
+  },
+  textStyle: {
+    fontSize: 18,
+    color: 'red'
   }
 };
 
-export default Footer;
+const mapDispatchToProps = dispatch => ({
+  removeAll: () => dispatch(removeSelected())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Footer);

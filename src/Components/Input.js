@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { addTodo } from '../Actions';
 
@@ -39,6 +40,10 @@ const styles = {
     flex: 1,
     fontSize: 18
   }
+};
+
+Input.propTypes = {
+  addTodo: PropTypes.func
 };
 
 export default connect(

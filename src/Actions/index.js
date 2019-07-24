@@ -5,7 +5,7 @@ export const addTodo = todo => {
     type: ADD_TODO,
     payload: {
       text: todo,
-      id: String(Math.random()),
+      id: String(Math.random()), // TODO: Cambiar
       selected: false
     }
   };
