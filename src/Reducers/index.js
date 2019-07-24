@@ -10,7 +10,7 @@ const INITIAL_STATE = [
     text: 'test2',
     id: String(Math.random()),
     selected: true
-  },
+  }
 ];
 
 export default (state = INITIAL_STATE, action) => {

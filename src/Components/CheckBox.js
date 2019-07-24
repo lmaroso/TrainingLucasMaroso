@@ -2,15 +2,6 @@ import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
-const CheckBox = ({ selected, toggleSelect }) => {
-  const { checkedCheckBoxStyle, uncheckedCheckBoxStyle } = styles;
-  return (
-    <TouchableOpacity onPress={() => toggleSelect} style={uncheckedCheckBoxStyle}>
-      <View style={[selected && checkedCheckBoxStyle]} />
-    </TouchableOpacity>
-  );
-};
-
 const styles = {
   uncheckedCheckBoxStyle: {
     width: 30,
@@ -31,9 +22,19 @@ const styles = {
   }
 };
 
+const CheckBox = ({ selected, onPress }) => {
+  const { checkedCheckBoxStyle, uncheckedCheckBoxStyle } = styles;
+  return (
+    <TouchableOpacity onPress={onPress} style={uncheckedCheckBoxStyle}>
+      <View style={[selected && checkedCheckBoxStyle]} />
+    </TouchableOpacity>
+  );
+};
+
 CheckBox.propTypes = {
   selected: PropTypes.bool,
-  toggleSelect: PropTypes.func
+  // toggleSelect: PropTypes.func
+  onPress: PropTypes.func
 };
 
 export default CheckBox;

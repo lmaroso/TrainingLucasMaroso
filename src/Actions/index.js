@@ -1,11 +1,17 @@
 import { ADD_TODO, REMOVE_TODO, REMOVE_SELECTED, TOGGLE_SELECT } from './types';
 
+function* createIds() {
+  let indice = 0;
+  while (true) yield (indice += 1);
+}
+const generate = createIds();
+
 export const addTodo = todo => {
   return {
     type: ADD_TODO,
     payload: {
       text: todo,
-      id: String(Math.random()), // TODO: Cambiar
+      id: String(generate.next().value),
       selected: false
     }
   };

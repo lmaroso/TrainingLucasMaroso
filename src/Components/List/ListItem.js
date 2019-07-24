@@ -11,9 +11,9 @@ import { CardSection } from '../CardSection';
 const ListItem = ({ todo, removeTodo, toggleSelect }) => {
   const { id, text, selected } = todo;
   return (
-    <CardSection>
-      <CheckBox onPress={toggleSelect} selected={selected} />
+    <CardSection text={text} selected={selected}>
       <Text style={styles.textStyle}>{text}</Text>
+      <CheckBox onPress={() => toggleSelect(id)} selected={selected} />
       <TouchableOpacity onPress={() => removeTodo(id)} style={{ marginRight: 10 }}>
         <Icon name="close" size={30} color="red" />
       </TouchableOpacity>
@@ -24,7 +24,8 @@ const ListItem = ({ todo, removeTodo, toggleSelect }) => {
 const styles = {
   textStyle: {
     flex: 1,
-    fontSize: 18
+    fontSize: 18,
+    paddingLeft: 15
   }
 };
 /*

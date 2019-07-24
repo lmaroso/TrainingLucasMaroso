@@ -12,12 +12,17 @@ const styles = {
     alignItems: 'center',
     borderColor: '#ddd',
     position: 'relative'
+  },
+  checkedStyle: {
+    backgroundColor: '#dddddd',
+    borderColor: '#b1b1b1'
   }
 };
 
-const CardSection = props => {
-  const { children } = props;
-  return <View style={[styles.containerStyle]}>{children}</View>;
+const CardSection = ({ selected, children }) => {
+  const { containerStyle, checkedStyle } = styles;
+
+  return <View style={[containerStyle, selected && checkedStyle]}>{children}</View>;
 };
 
 export { CardSection };
