@@ -1,4 +1,6 @@
-const Styles = {
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
   viewStyle: {
     backgroundColor: '#87ceeb',
     justifyContent: 'center',
@@ -9,6 +11,6 @@ const Styles = {
     fontSize: 20,
     color: '#FFF'
   }
-};
+});
 
-export default Styles;
+export default styles;

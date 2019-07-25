@@ -1,18 +1,10 @@
-import { ADD_TODO, REMOVE_TODO, REMOVE_SELECTED, TOGGLE_SELECT } from './types';
-
-function* createIds() {
-  let indice = 0;
-  while (true) yield (indice += 1);
-}
-const generate = createIds();
+import { ADD_TODO, REMOVE_TODO, REMOVE_SELECTED, TOGGLE_SELECT } from './constants';
 
 export const addTodo = todo => {
   return {
     type: ADD_TODO,
     payload: {
-      text: todo,
-      id: String(generate.next().value),
-      selected: false
+      text: todo
     }
   };
 };

@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { removeSelected } from '../../Actions';
-import DeleteSelectedButton from '../Buttons/DeleteSelectedButton';
+import DeleteSelectedButton from '../DeleteSelectedButton';
 
-import Styles from './Styles';
+import styles from './styles';
 
 const Footer = ({ dispatchRemoveSelected }) => {
-  const { footerStyle } = Styles;
   return (
-    <View style={footerStyle}>
-      <DeleteSelectedButton onPress={() => dispatchRemoveSelected()} />
+    <View style={styles.footerStyle}>
+      <DeleteSelectedButton onPress={dispatchRemoveSelected} />
     </View>
   );
 };

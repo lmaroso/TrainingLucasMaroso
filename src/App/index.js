@@ -4,13 +4,13 @@ import { createStore } from 'redux';
 import { View } from 'react-native';
 
 import Reactotron from '../Reactotron/ReactotronConfig';
-import Title from '../Components/Title/Index';
-import Input from '../Components/Input/Input';
-import List from '../Components/List/List';
-import Footer from '../Components/Footer/Footer';
+import Title from '../Components/Title';
+import Input from '../Components/Input';
+import List from '../Components/List';
+import Footer from '../Components/Footer';
 import reducers from '../Reducers';
 
-import { footerStyle } from './styles';
+import styles from './styles';
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Title />
         <Input />
         <List />
-        <Footer style={footerStyle} />
+        <Footer style={styles.footerStyle} />
       </View>
     </Provider>
   );

@@ -1,11 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import Styles from './Styles';
+import styles from './styles';
 
 const Title = () => {
-  // eslint-disable-next-line no-use-before-define
-  const { textStyle, viewStyle } = Styles;
+  const { textStyle, viewStyle } = styles;
   return (
     <View style={viewStyle}>
       <Text style={textStyle}>Todo List</Text>

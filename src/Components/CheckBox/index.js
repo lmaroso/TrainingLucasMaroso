@@ -2,10 +2,10 @@ import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Styles from './Styles';
+import styles from './styles';
 
 const CheckBox = ({ selected, onPress }) => {
-  const { checkedCheckBoxStyle, uncheckedCheckBoxStyle } = Styles;
+  const { checkedCheckBoxStyle, uncheckedCheckBoxStyle } = styles;
   return (
     <TouchableOpacity onPress={onPress} style={uncheckedCheckBoxStyle}>
       <View style={[selected && checkedCheckBoxStyle]} />

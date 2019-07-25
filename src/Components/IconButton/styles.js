@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  footerStyle: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0
+  iconButtonStyle: {
+    justifyContent: 'center',
+    marginRight: 8,
+    marginLeft: 5
   }
 });
 

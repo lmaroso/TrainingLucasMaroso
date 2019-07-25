@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import { TextInput, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addTodo } from '../../Actions';
-import AddButton from '../Buttons/AddButton';
-import { CardSection } from '../CardSection/Index';
+import IconButton from '../IconButton';
+import { CardSection } from '../CardSection';
 
-import Styles from './Styles';
+import styles from './styles';
 
 class Input extends Component {
   state = { text: '' };
@@ -17,22 +17,26 @@ class Input extends Component {
     const { text } = this.state;
     addTodo(text);
     this.setState({ text: '' });
+    Keyboard.dismiss();
+  };
+
+  handleChangeText = text => {
+    this.setState({ text });
   };
 
   render() {
     const { text } = this.state;
-    const { textInputStyle } = Styles;
 
     return (
       <CardSection>
         <TextInput
           onSubmitEditing={this.handleAdd}
-          style={textInputStyle}
+          style={styles.textInputStyle}
           placeholder="Enter an Item!"
           value={text}
-          onChangeText={text => this.setState({ text })}
+          onChangeText={this.handleChangeText}
         />
-        <AddButton onPress={this.handleAdd} />
+        <IconButton name="add" color="black" onPress={this.handleAdd} />
       </CardSection>
     );
   }

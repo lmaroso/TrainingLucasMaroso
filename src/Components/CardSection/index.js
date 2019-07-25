@@ -1,12 +1,11 @@
-/* eslint-disable arrow-body-style */
 import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Styles from './Styles';
+import styles from './styles';
 
 const CardSection = ({ selected, children }) => {
-  const { containerStyle, checkedStyle } = Styles;
+  const { containerStyle, checkedStyle } = styles;
   return <View style={[containerStyle, selected && checkedStyle]}>{children}</View>;
 };
 

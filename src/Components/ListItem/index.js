@@ -3,21 +3,20 @@ import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import DeleteButton from '../Buttons/DeleteButton';
-import CheckBox from '../Buttons/CheckBox';
+import IconButton from '../IconButton';
+import CheckBox from '../CheckBox';
 import { toggleSelect, removeTodo } from '../../Actions';
-import { CardSection } from '../CardSection/Index';
+import { CardSection } from '../CardSection';
 
-import Styles from './Styles';
+import styles from './styles';
 
 const ListItem = ({ todo, dispatchRemoveTodo, dispatchToggleSelect }) => {
   const { id, text, selected } = todo;
-  const { textStyle } = Styles;
   return (
     <CardSection selected={selected}>
-      <Text style={textStyle}>{text}</Text>
+      <Text style={styles.textStyle}>{text}</Text>
       <CheckBox onPress={() => dispatchToggleSelect(id)} selected={selected} />
-      <DeleteButton onPress={() => dispatchRemoveTodo(id)} />
+      <IconButton name="close" color="red" onPress={() => dispatchRemoveTodo(id)} />
     </CardSection>
   );
 };

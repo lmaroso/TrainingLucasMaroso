@@ -1,10 +1,6 @@
-const Styles = {
-  addButtonStyle: {
-    type: 'clear',
-    justifyContent: 'center',
-    marginRight: 8,
-    marginLeft: 5
-  },
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
   uncheckedCheckBoxStyle: {
     width: 30,
     height: 30,
@@ -21,17 +17,7 @@ const Styles = {
     borderRadius: 1,
     borderWidth: 1,
     backgroundColor: '#000'
-  },
-  deleteButtonStyle: {
-    type: 'clear',
-    justifyContent: 'center',
-    marginRight: 8,
-    marginLeft: 5
-  },
-  textStyle: {
-    fontSize: 18,
-    color: 'red'
   }
-};
+});
 
-export default Styles;
+export default styles;

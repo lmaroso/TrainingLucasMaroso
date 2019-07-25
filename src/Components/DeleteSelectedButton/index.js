@@ -2,13 +2,12 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Styles from './Styles';
+import styles from './styles';
 
 const DeleteSelectedButton = ({ onPress }) => {
-  const { textStyle } = Styles;
   return (
     <TouchableOpacity onPress={onPress}>
-      <Text style={textStyle}>Remove selected items</Text>
+      <Text style={styles.textStyle}>Remove completed tasks</Text>
     </TouchableOpacity>
   );
 };
