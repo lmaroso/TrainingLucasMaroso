@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  footerStyle: {
+  buttonStyle: {
+    flex: 1,
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#FFF',
@@ -9,8 +10,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5
   },
   textStyle: {
-    fontSize: 18,
-    color: 'red'
+    fontSize: 18
   }
 });
 
