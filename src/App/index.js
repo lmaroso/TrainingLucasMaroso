@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-import Reactotron from '../Reactotron/ReactotronConfig';
-import reducers from '../Reducers';
+import store from '../redux/store';
 import Router from '../Router';
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={createStore(reducers, Reactotron.createEnhancer())}>
-        <Router />
-      </Provider>
-    );
-  }
-}
+/* class App extends Component {
+  render() { */
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Router />
+    </Provider>
+  );
+};
+// }
 
 export default App;

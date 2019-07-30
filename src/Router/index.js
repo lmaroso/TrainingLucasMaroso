@@ -1,7 +1,7 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import DummyScreen from '../Components/DummyScreen';
-import Todo from '../Components/Todo';
+import DummyScreen from '../components/DummyScreen';
+import Todo from '../components/Todo';
 
 import Routes from './Routes';
 
