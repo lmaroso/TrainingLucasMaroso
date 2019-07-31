@@ -25,6 +25,6 @@ List.propTypes = {
   )
 };
 
-const mapStateToProps = state => ({ todos: state });
+const mapStateToProps = state => ({ todos: state.todos });
 
 export default connect(mapStateToProps)(List);

@@ -1,9 +1,12 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 import Reactotron from '../Reactotron/ReactotronConfig';
 
-import reducers from './todo/reducer';
+import todos from './todo/reducer';
+
+const reducers = combineReducers({
+  todos
+});
 
 const store = createStore(reducers, Reactotron.createEnhancer());
-
 export default store;
