@@ -1,28 +1,48 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 
-import DummyScreen from '../components/DummyScreen';
 import Todo from '../components/Todo';
+import DummyScreen from '../components/DummyScreen';
 
-import Routes from './Routes';
+import Routes from './routes';
 
-const screens = createStackNavigator(
-  /* {
-    [Routes.home]: {
-      screen: 
+const tabNavigator = createBottomTabNavigator(
+  {
+    [Routes.Todo]: {
+      screen: Todo
+    },
+    [Routes.DummyScreen]: {
+      screen: DummyScreen
     }
-  } */ {
-    home: Todo,
-    test: DummyScreen
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: 'red',
+      labelStyle: {
+        fontSize: 18
+      },
+      style: {
+        paddingBottom: 10
+      },
+      pressColor: 'blue'
+    },
+    navigationOptions: ({ navigation }) => ({
+      title: `${navigation.state.routes[navigation.state.index].routeName}`
+    })
+  }
+);
+
+const stackNavigator = createStackNavigator(
+  {
+    Home: tabNavigator
   },
   {
     defaultNavigationOptions: {
-      headerTitle: 'Todo List',
       headerTintColor: '#FFF',
       headerStyle: {
         backgroundColor: '#87ceeb'
-      } // , headerLayoutPreset: 'center' NO FUNCIONA
+      }
     }
   }
 );
 
-export default /* screens; // */ createAppContainer(screens);
+export default createAppContainer(stackNavigator);

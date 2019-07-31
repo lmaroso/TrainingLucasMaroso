@@ -6,9 +6,6 @@ import { CardSection } from '../CardSection';
 
 import styles from './styles';
 
-// eslint-disable-next-line react/prefer-stateless-function
-/* class NavigationButton extends Component {
-  render() { */
 const NavigationButton = ({ title, onPress }) => {
   return (
     <CardSection>
@@ -18,7 +15,6 @@ const NavigationButton = ({ title, onPress }) => {
     </CardSection>
   );
 };
-// }
 
 NavigationButton.propTypes = {
   title: PropTypes.string,
