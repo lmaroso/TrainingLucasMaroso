@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import Input from '../Input';
-import List from '../List';
-import Footer from '../Footer';
+import Input from '../../components/Input';
+import List from '../../components/List';
 
+import Footer from './components/Footer';
 import styles from './styles';
 
 const Todo = () => {
