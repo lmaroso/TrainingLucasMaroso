@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   headerText: {
-    fontSize: 18
+    fontSize: 18,
+    fontWeight: 'bold'
   },
   thumbnail: {
     height: 83,

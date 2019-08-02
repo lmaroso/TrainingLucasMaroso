@@ -6,8 +6,8 @@ import { CardSection } from '../../../../components/CardSection';
 
 import styles from './styles';
 
-const ListItem = ({ book }) => {
-  const { title, author, imageLink } = book;
+const ListItem = ({ elem }) => {
+  const { title, author, imageLink } = elem;
 
   return (
     <View>
@@ -23,14 +23,15 @@ const ListItem = ({ book }) => {
     </View>
   );
 };
-
+/*
 ListItem.propTypes = {
-  book: PropTypes.shape({
+  elem: PropTypes.shape({
+    id: PropTypes.number,
     title: PropTypes.string,
     author: PropTypes.string,
     imageLink: PropTypes.string,
     link: PropTypes.string
   })
-};
+}; */
 
 export default ListItem;

@@ -11,7 +11,7 @@ import styles from './styles';
 const Footer = ({ dispatchRemoveSelected }) => {
   return (
     <View style={styles.footer}>
-      <DeleteSelectedButton onPress={dispatchRemoveSelected} title={"Remove completed tasks"} />
+      <DeleteSelectedButton onPress={dispatchRemoveSelected} title="Remove completed tasks" />
     </View>
   );
 };

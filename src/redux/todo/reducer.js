@@ -8,7 +8,7 @@ function* createIds() {
 }
 const generateId = createIds();
 
-export default function reducer(state = INITIAL_STATE, action) {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TODO:
       return action.payload.text === ''
