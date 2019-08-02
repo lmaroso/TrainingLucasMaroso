@@ -1,24 +1,18 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import axios from 'axios';
 
-import List from './components/List';
 import ListItem from './components/ListItem';
 
 class Books extends Component {
-  state = {
-    books: []
-  };
+  state = {};
 
   async componentDidMount() {
-    // const { books } = this.state;
     try {
       const response = await axios.get(`https://private-69a0f-lucasmaroso.apiary-mock.com/books`);
-      const json = await response.data;
-      // const datos = json.data;
+      const json = response.data;
       this.setState({ json });
-      console.log(this.state);
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error);
@@ -26,51 +20,16 @@ class Books extends Component {
   }
 
   renderBooks() {
-    const { books } = this.state;
-
-    return books.map(book => <ListItem key={book.title} book={book} />);
+    const { json } = this.state;
+    if (json === undefined) {
+      return <Text>Cargando...</Text>;
+    }
+    return json.map(book => <ListItem key={book.title} book={book} />);
   }
 
   render() {
-    // <Text>hello</Text>;
-    return (
-      <ScrollView>{this.renderBooks()}</ScrollView>
-      /*
-      <View>
-        <List books={this.state} />
-      </View>
-      */
-    );
+    return <ScrollView>{this.renderBooks()}</ScrollView>;
   }
 }
 
 export default Books;
-
-/*
-state = [
-    {
-      id: 1,
-      image: '',
-      title: 'unTitulo',
-      author: 'otroAutor'
-    },
-    {
-      id: 2,
-      image: '',
-      title: 'unTitulo',
-      author: 'otroAutor'
-    },
-    {
-      id: 3,
-      image: '',
-      title: 'unTitulo',
-      author: 'otroAutor'
-    },
-    {
-      id: 4,
-      image: '',
-      title: 'unTitulo',
-      author: 'otroAutor'
-    }
-  ];
-*/

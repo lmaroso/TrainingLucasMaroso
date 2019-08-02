@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   thumbnail: {
-    height: 100,
-    width: 100
+    height: 83,
+    width: 83
   },
   thumbnailContainer: {
     justifyContent: 'center',
