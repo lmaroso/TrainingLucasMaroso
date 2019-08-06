@@ -2,18 +2,21 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   headerContent: {
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
   headerText: {
+    flex: 1,
     flexWrap: 'wrap',
     fontSize: 18,
     fontWeight: 'bold'
   },
   thumbnail: {
-    height: 80,
-    width: 80,
-    borderRadius: 400
+    height: 50,
+    width: 50,
+    borderRadius: 400,
+    backgroundColor: 'grey'
   },
   thumbnailContainer: {
     justifyContent: 'center',

@@ -1,12 +1,6 @@
-import { START, SUCCESS, FAILURE, CLEAN_BOOKS } from './constants';
+import { SUCCESS, FAILURE, CLEAN_FIELDS } from './constants';
 
 export const actionCreators = {
-  start: bool => {
-    return {
-      type: START,
-      payload: bool
-    };
-  },
   success: data => {
     return {
       type: SUCCESS,
@@ -19,9 +13,9 @@ export const actionCreators = {
       payload: error
     };
   },
-  cleanBooks: () => {
+  cleanFields: () => {
     return {
-      type: CLEAN_BOOKS
+      type: CLEAN_FIELDS
     };
   }
 };

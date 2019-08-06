@@ -1,4 +1,4 @@
-import { SUCCESS, FAILURE, CLEAN_BOOKS } from './constants';
+import { SUCCESS, FAILURE, CLEAN_FIELDS } from './constants';
 
 const INITIAL_STATE = {
   isLoading: true,
@@ -12,7 +12,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, books: [...action.payload], isLoading: false };
     case FAILURE:
       return { ...state, error: action.payload, isLoading: false };
-    case CLEAN_BOOKS:
+    case CLEAN_FIELDS:
       return INITIAL_STATE;
     default:
       return state;

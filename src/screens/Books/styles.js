@@ -1,14 +1,19 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  textButon: {
+  spinnerView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textButtonView: {
+    flex: 1
+  },
+  textButton: {
     position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0
-  },
-  view: {
-    flex: 1
   }
 });
 

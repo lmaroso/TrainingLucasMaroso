@@ -23,15 +23,15 @@ const ListItem = ({ elem }) => {
     </View>
   );
 };
-/*
+
 ListItem.propTypes = {
   elem: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
     imageLink: PropTypes.string,
     link: PropTypes.string
   })
-}; */
+};
 
 export default ListItem;
