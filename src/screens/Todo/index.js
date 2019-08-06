@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import Input from '../../components/Input';
 import List from '../../components/List';
-// import List from '../Books/components/List';
 
 import Footer from './components/Footer';
 import styles from './styles';

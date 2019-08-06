@@ -6,12 +6,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   headerText: {
+    flexWrap: 'wrap',
     fontSize: 18,
     fontWeight: 'bold'
   },
   thumbnail: {
-    height: 83,
-    width: 83
+    height: 80,
+    width: 80,
+    borderRadius: 400
   },
   thumbnailContainer: {
     justifyContent: 'center',
@@ -20,9 +22,8 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   image: {
-    height: 300,
-    flex: 1,
-    width: 300
+    height: 500,
+    width: 500
   }
 });
 

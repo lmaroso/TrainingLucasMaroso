@@ -1,21 +1,27 @@
-import { LOADING, SUCCESS, FAILURE } from './constants';
+import { START, SUCCESS, FAILURE, CLEAN_BOOKS } from './constants';
 
 export const actionCreators = {
-  loading: () => {
+  start: bool => {
     return {
-      type: LOADING
+      type: START,
+      payload: bool
     };
   },
-  loadingSuccess: () => {
+  success: data => {
     return {
       type: SUCCESS,
       payload: data
     };
   },
-  loadingFailed: () => {
+  failure: error => {
     return {
       type: FAILURE,
       payload: error
+    };
+  },
+  cleanBooks: () => {
+    return {
+      type: CLEAN_BOOKS
     };
   }
 };
