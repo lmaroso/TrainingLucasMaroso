@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { CardSection } from '../../../../components/CardSection';
+import CardSection from '../../../../components/CardSection';
 
 import styles from './styles';
 

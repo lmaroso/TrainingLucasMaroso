@@ -12,4 +12,4 @@ CardSection.propTypes = {
   selected: PropTypes.bool
 };
 
-export { CardSection };
+export default CardSection;

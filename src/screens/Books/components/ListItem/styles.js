@@ -4,13 +4,14 @@ const styles = StyleSheet.create({
   headerContent: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'flex-start'
   },
   headerText: {
     flex: 1,
     flexWrap: 'wrap',
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    paddingBottom: 4
   },
   thumbnail: {
     height: 50,

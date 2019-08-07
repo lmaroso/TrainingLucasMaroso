@@ -14,6 +14,19 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0
+  },
+  errorView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  errorText: {
+    color: 'red',
+    paddingBottom: 15
+  },
+  errorButton: {
+    width: '75%',
+    height: 45
   }
 });
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, View, Modal } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { CardSection } from '../CardSection';
-import { Button } from '../Button';
+import CardSection from '../CardSection';
+import Button from '../Button';
 
 import styles from './styles';
 
@@ -27,4 +27,4 @@ ErrorModal.propTypes = {
   error: PropTypes.string
 };
 
-export { ErrorModal };
+export default ErrorModal;

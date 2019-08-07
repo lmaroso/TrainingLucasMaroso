@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import { actionCreators as bookActions } from '../../redux/books/actions';
-import { Spinner } from '../../components/Spinner';
-import { ErrorModal } from '../../components/ErrorModal';
-import TextButton from '../../components/TextButton';
-import List from '../../components/List';
+import ErrorModal from '../../components/ErrorModal';
+import Button from '../../components/Button';
 
 import ListItem from './components/ListItem';
 import styles from './styles';
 
 class Books extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.loadContent();
   }
 
@@ -30,22 +28,30 @@ class Books extends Component {
     }
   }
 
+  renderItem = ({ item }) => <ListItem elem={item} />;
+
   render() {
     const { isLoading, books, error } = this.props;
-    if (isLoading) {
+    if (error !== null) {
       return (
-        <View style={styles.spinnerView}>
-          <Spinner size={75} />
+        <View style={styles.errorView}>
+          <Text style={styles.errorText}>Error while loading books. Please, reload.</Text>
+          <View style={styles.errorButton}>
+            <Button onPress={() => this.loadContent()}>Refresh</Button>
+          </View>
+          <ErrorModal error={error} />
         </View>
       );
     }
-    if (error !== null) {
-      return <ErrorModal error={error} />;
-    }
     return (
       <View style={styles.textButtonView}>
-        <List elems={books} render={({ item }) => <ListItem elem={item} />} />
-        <TextButton onPress={() => this.loadContent()} title="Refresh" style={styles.textButton} />
+        <FlatList
+          keyExtractor={book => book.id}
+          data={books}
+          renderItem={item => this.renderItem(item)}
+          onRefresh={() => this.loadContent()}
+          refreshing={isLoading}
+        />
       </View>
     );
   }

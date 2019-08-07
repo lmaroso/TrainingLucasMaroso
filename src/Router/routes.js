@@ -6,9 +6,8 @@ const generateRoutes = routeNamesArray => {
   return routesObject;
 };
 
-const TAB_ROUTE_LIST = ['Todo', 'Books'];
-const STACK_ROUTE_LIST = ['Home'];
+const ROUTE_LIST = ['Todo', 'Books', 'TabNavigator'];
 
-const Routes = generateRoutes(TAB_ROUTE_LIST, STACK_ROUTE_LIST);
+const Routes = generateRoutes(ROUTE_LIST);
 
 export default Routes;
