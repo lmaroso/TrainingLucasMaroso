@@ -3,14 +3,13 @@ import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Input from '../../components/Input';
 import { actionCreators as todoActions } from '../../redux/todo/actions';
 import TextButton from '../../components/TextButton';
 
+import Input from './components/Input';
 import ListItem from './components/ListItem';
 import styles from './styles';
 
-// const Todo = ({ todos, renderItem, dispatchRemoveSelected }) => {
 class Todo extends Component {
   renderItem = ({ item }) => {
     return <ListItem elem={item} />;

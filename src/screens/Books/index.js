@@ -14,6 +14,7 @@ import styles from './styles';
 class Books extends Component {
   componentDidMount() {
     this.loadContent();
+    console.log(this.props);
   }
 
   async loadContent() {
@@ -28,7 +29,11 @@ class Books extends Component {
     }
   }
 
-  renderItem = ({ item }) => <ListItem elem={item} />;
+  renderItem = ({ item }) => {
+    const { navigation } = this.props;
+    const { navigate } = navigation;
+    return <ListItem elem={item} onPress={() => navigate('BookDetails')} />;
+  };
 
   render() {
     const { isLoading, books, error } = this.props;
