@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import IconButton from '../../../../components/IconButton';
 import CheckBox from '../../../../components/CheckBox';
 import { actionCreators as todoActions } from '../../../../redux/todo/actions';
-import { CardSection } from '../../../../components/CardSection';
+import CardSection from '../../../../components/CardSection';
 
 import styles from './styles';
 

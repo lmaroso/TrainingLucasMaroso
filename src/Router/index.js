@@ -33,7 +33,7 @@ const tabNavigator = createBottomTabNavigator(
 
 const stackNavigator = createStackNavigator(
   {
-    [Routes.Home]: tabNavigator
+    [Routes.TabNavigator]: tabNavigator
   },
   {
     defaultNavigationOptions: {
