@@ -7,8 +7,8 @@ import Input from '../../components/Input';
 import List from '../../components/List';
 import { actionCreators as todoActions } from '../../redux/todo/actions';
 import TextButton from '../../components/TextButton';
-import ListItem from '../../components/ListItem';
 
+import ListItem from './components/ListItem';
 import styles from './styles';
 
 const Todo = ({ todos, dispatchRemoveSelected }) => {
