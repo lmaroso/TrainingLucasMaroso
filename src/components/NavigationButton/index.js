@@ -10,7 +10,7 @@ const NavigationButton = ({ title, onPress }) => {
   return (
     <CardSection>
       <TouchableOpacity onPress={onPress} style={styles.button}>
-        <Text style={styles.textStyle}>{title}</Text>
+        <Text style={styles.text}>{title}</Text>
       </TouchableOpacity>
     </CardSection>
   );

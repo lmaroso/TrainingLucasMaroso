@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderWidth: 0.5
   },
-  textStyle: {
+  text: {
     fontSize: 18
   }
 });

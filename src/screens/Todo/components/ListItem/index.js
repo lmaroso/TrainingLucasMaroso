@@ -3,15 +3,15 @@ import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import IconButton from '../IconButton';
-import CheckBox from '../CheckBox';
-import { actionCreators as todoActions } from '../../redux/todo/actions';
-import { CardSection } from '../CardSection';
+import IconButton from '../../../../components/IconButton';
+import CheckBox from '../../../../components/CheckBox';
+import { actionCreators as todoActions } from '../../../../redux/todo/actions';
+import { CardSection } from '../../../../components/CardSection';
 
 import styles from './styles';
 
-const ListItem = ({ todo, dispatchRemoveTodo, dispatchToggleSelect }) => {
-  const { id, text, selected } = todo;
+const ListItem = ({ elem, dispatchRemoveTodo, dispatchToggleSelect }) => {
+  const { id, text, selected } = elem;
   return (
     <CardSection selected={selected}>
       <Text style={styles.text}>{text}</Text>
@@ -24,7 +24,7 @@ const ListItem = ({ todo, dispatchRemoveTodo, dispatchToggleSelect }) => {
 ListItem.propTypes = {
   dispatchRemoveTodo: PropTypes.func,
   dispatchToggleSelect: PropTypes.func,
-  todo: PropTypes.shape({
+  elem: PropTypes.shape({
     id: PropTypes.string,
     text: PropTypes.string,
     selected: PropTypes.bool

@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-const DeleteSelectedButton = ({ onPress }) => {
+const Button = ({ onPress, children }) => {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <Text style={styles.text}>Remove completed tasks</Text>
+    <TouchableOpacity onPress={onPress} style={styles.button}>
+      <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
   );
 };
 
-DeleteSelectedButton.propTypes = {
+Button.propTypes = {
   onPress: PropTypes.func
 };
 
-export default DeleteSelectedButton;
+export { Button };

@@ -1,30 +1,29 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import ListItem from '../ListItem';
-
-const List = ({ todos }) => {
-  return (
-    <FlatList
-      keyExtractor={todo => todo.id}
-      data={todos}
-      renderItem={({ item }) => <ListItem todo={item} />}
-    />
-  );
+const List = ({ elems, render }) => {
+  return <FlatList keyExtractor={elem => elem.id} data={elems} renderItem={render} />;
 };
 
 List.propTypes = {
-  todos: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      text: PropTypes.string,
-      selected: PropTypes.bool
-    })
-  )
+  elems: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+        author: PropTypes.string,
+        imageLink: PropTypes.string,
+        link: PropTypes.string
+      }),
+      PropTypes.shape({
+        id: PropTypes.string,
+        text: PropTypes.string,
+        selected: PropTypes.bool
+      })
+    ])
+  ),
+  render: PropTypes.func
 };
 
-const mapStateToProps = state => ({ todos: state.todos });
-
-export default connect(mapStateToProps)(List);
+export default List;
