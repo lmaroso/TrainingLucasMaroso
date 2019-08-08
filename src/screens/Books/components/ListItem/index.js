@@ -33,7 +33,7 @@ ListItem.propTypes = {
     imageLink: PropTypes.string,
     link: PropTypes.string
   }),
-  onPress: PropTypes.func
+  onPress: PropTypes.func.isRequired
 };
 
 export default ListItem;

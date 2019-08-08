@@ -29,15 +29,16 @@ class Books extends Component {
   }
 
   renderItem = ({ item }) => {
-    const { navigation } = this.props;
-    const { navigate } = navigation;
+    const {
+      navigation: { navigate }
+    } = this.props;
     const { title } = item;
     return <ListItem elem={item} onPress={() => navigate('BookDetails', { book: item, bookTitle: title })} />;
   };
 
   render() {
     const { isLoading, books, error } = this.props;
-    if (error !== null) {
+    if (error) {
       return (
         <View style={styles.errorView}>
           <Text style={styles.errorText}>Error while loading books. Please, refresh.</Text>

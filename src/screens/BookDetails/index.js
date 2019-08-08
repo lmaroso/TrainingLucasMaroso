@@ -22,8 +22,8 @@ class BookDetails extends Component {
             <Image style={styles.image} source={{ uri: imageLink }} resizeMode="contain" />
           </View>
           <View style={styles.textView}>
-            <Text style={styles.author}>{`${author}`}</Text>
-            <Text style={styles.description}>{`${description}`}</Text>
+            <Text style={styles.author}>{author || 'Unknown'}</Text>
+            <Text style={styles.description}>{description || 'Unknown'}</Text>
           </View>
         </ScrollView>
       </View>
