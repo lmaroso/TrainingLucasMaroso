@@ -6,7 +6,7 @@ const generateRoutes = routeNamesArray => {
   return routesObject;
 };
 
-const ROUTE_LIST = ['Todo', 'DummyScreen'];
+const ROUTE_LIST = ['Todo', 'Books', 'TabNavigator'];
 
 const Routes = generateRoutes(ROUTE_LIST);
 

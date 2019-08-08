@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { actionCreators as todoActions } from '../../redux/todo/actions';
 import IconButton from '../IconButton';
-import { CardSection } from '../CardSection';
+import CardSection from '../CardSection';
 
 import styles from './styles';
 

@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  view: {
-    backgroundColor: '#87ceeb',
-    justifyContent: 'center',
+  textButton: {
     alignItems: 'center',
-    padding: 15,
-    flex: 1
+    padding: 20,
+    backgroundColor: '#FFF',
+    borderColor: '#ddd',
+    borderWidth: 0.5
   },
   text: {
-    fontSize: 20,
-    color: '#FFF'
+    fontSize: 18,
+    color: 'red'
   }
 });
 

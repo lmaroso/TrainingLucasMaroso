@@ -1,7 +1,7 @@
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 
-import Todo from '../components/Todo';
-import DummyScreen from '../components/DummyScreen';
+import Todo from '../screens/Todo';
+import Books from '../screens/Books';
 
 import Routes from './routes';
 
@@ -10,8 +10,8 @@ const tabNavigator = createBottomTabNavigator(
     [Routes.Todo]: {
       screen: Todo
     },
-    [Routes.DummyScreen]: {
-      screen: DummyScreen
+    [Routes.Books]: {
+      screen: Books
     }
   },
   {
@@ -33,7 +33,7 @@ const tabNavigator = createBottomTabNavigator(
 
 const stackNavigator = createStackNavigator(
   {
-    Home: tabNavigator
+    [Routes.TabNavigator]: tabNavigator
   },
   {
     defaultNavigationOptions: {
