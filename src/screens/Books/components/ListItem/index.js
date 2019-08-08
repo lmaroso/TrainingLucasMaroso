@@ -11,7 +11,7 @@ const ListItem = ({ elem, onPress }) => {
   return (
     <View>
       <CardSection>
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity onPress={onPress} style={styles.touchableOpacity}>
           <View style={styles.thumbnailContainer}>
             <Image style={styles.thumbnail} source={{ uri: imageLink }} />
           </View>
@@ -32,7 +32,8 @@ ListItem.propTypes = {
     author: PropTypes.string,
     imageLink: PropTypes.string,
     link: PropTypes.string
-  })
+  }),
+  onPress: PropTypes.func
 };
 
 export default ListItem;

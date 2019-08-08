@@ -20,14 +20,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey'
   },
   thumbnailContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
     marginLeft: 10,
     marginRight: 10
   },
   image: {
     height: 500,
     width: 500
+  },
+  touchableOpacity: {
+    flexDirection: 'row',
+    alignItems: 'flex-start'
   }
 });
 
