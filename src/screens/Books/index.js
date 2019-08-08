@@ -28,14 +28,19 @@ class Books extends Component {
     }
   }
 
-  renderItem = ({ item }) => <ListItem elem={item} />;
+  renderItem = ({ item }) => {
+    const { navigation } = this.props;
+    const { navigate } = navigation;
+    const { title } = item;
+    return <ListItem elem={item} onPress={() => navigate('BookDetails', { book: item, bookTitle: title })} />;
+  };
 
   render() {
     const { isLoading, books, error } = this.props;
     if (error !== null) {
       return (
         <View style={styles.errorView}>
-          <Text style={styles.errorText}>Error while loading books. Please, reload.</Text>
+          <Text style={styles.errorText}>Error while loading books. Please, refresh.</Text>
           <View style={styles.errorButton}>
             <Button onPress={() => this.loadContent()}>Refresh</Button>
           </View>
@@ -58,6 +63,9 @@ class Books extends Component {
 }
 
 Books.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func
+  }),
   isLoading: PropTypes.bool,
   error: PropTypes.string,
   books: PropTypes.arrayOf(
@@ -74,7 +82,12 @@ Books.propTypes = {
   dispatchCleanFields: PropTypes.func
 };
 
-const mapStateToProps = ({ books: { isLoading, error, books } }) => ({ isLoading, error, books });
+const mapStateToProps = ({ books: { isLoading, error, books, description } }) => ({
+  isLoading,
+  error,
+  books,
+  description
+});
 
 const mapDispatchToProps = dispatch => ({
   dispatchSuccess: data => dispatch(bookActions.success(data)),

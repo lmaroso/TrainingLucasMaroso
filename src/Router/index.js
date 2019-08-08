@@ -2,6 +2,7 @@ import { createStackNavigator, createAppContainer, createBottomTabNavigator } fr
 
 import Todo from '../screens/Todo';
 import Books from '../screens/Books';
+import BookDetails from '../screens/BookDetails';
 
 import Routes from './routes';
 
@@ -33,7 +34,8 @@ const tabNavigator = createBottomTabNavigator(
 
 const stackNavigator = createStackNavigator(
   {
-    [Routes.TabNavigator]: tabNavigator
+    [Routes.TabNavigator]: tabNavigator,
+    [Routes.BookDetails]: BookDetails
   },
   {
     defaultNavigationOptions: {
