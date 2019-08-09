@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, Image, Button, ScrollView, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
 
+import Form from './components/Form';
 import styles from './styles';
 
 class BookDetails extends Component {
@@ -24,6 +26,10 @@ class BookDetails extends Component {
           <View style={styles.textView}>
             <Text style={styles.author}>{author || 'Unknown'}</Text>
             <Text style={styles.description}>{description || 'Unknown'}</Text>
+          </View>
+          <View style={styles.commentsContainer}>
+            <Text style={styles.commentText}>Leave your comment here!</Text>
+            <Form />
           </View>
         </ScrollView>
       </View>
