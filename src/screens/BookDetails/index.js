@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Button, ScrollView, TextInput } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 
+import { actionCreators } from '../../redux/comments/actions';
+
+import CommentList from './components/commentList';
 import Form from './components/Form';
 import styles from './styles';
 
@@ -14,8 +17,13 @@ class BookDetails extends Component {
     };
   };
 
+  submit = comment => {
+    const { dispatchAddComment } = this.props;
+    dispatchAddComment(comment);
+  };
+
   render() {
-    const { navigation } = this.props;
+    const { navigation, comments } = this.props;
     const { author, imageLink, description } = navigation.getParam('book');
     return (
       <View style={styles.view}>
@@ -27,9 +35,10 @@ class BookDetails extends Component {
             <Text style={styles.author}>{author || 'Unknown'}</Text>
             <Text style={styles.description}>{description || 'Unknown'}</Text>
           </View>
+          <CommentList values={comments} />
           <View style={styles.commentsContainer}>
             <Text style={styles.commentText}>Leave your comment here!</Text>
-            <Form />
+            <Form onSubmit={this.submit} />
           </View>
         </ScrollView>
       </View>
@@ -53,4 +62,13 @@ BookDetails.propTypes = {
   })
 };
 
-export default BookDetails;
+const mapStateToProps = state => ({ comments: state.comments });
+
+const mapDispatchToProps = dispatch => ({
+  dispatchAddComment: comment => dispatch(actionCreators.addComment(comment))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BookDetails);

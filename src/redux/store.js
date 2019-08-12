@@ -5,10 +5,12 @@ import Reactotron from '../Reactotron/ReactotronConfig';
 
 import todos from './todo/reducer';
 import books from './books/reducer';
+import comments from './comments/reducer';
 
 const reducers = combineReducers({
   todos,
   books,
+  comments,
   form: formReducer
 });
 
